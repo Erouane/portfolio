@@ -1,20 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { MainHeader } from "./ui/components/mainHeader";
-import { HomeScreen } from "./ui/screens/homeScreen";
+import { SideBar } from "./ui/components/sideBar/sideBar";
+import { AboutScreen } from "./ui/screens/aboutScreen";
 
 function App() {
   return (
     <MainContainer>
-      <HomeScreen />
-      <MainHeader />
+      <SideBar />
+      <AboutScreen />
     </MainContainer>
   );
 }
 
 const MainContainer = styled.div`
+  height: 100vh;
+  overflow: hidden;
+  margin: 0px;
   display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
 `;
 
 export default App;

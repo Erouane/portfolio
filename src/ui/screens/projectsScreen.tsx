@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { Colors } from '../theme/colors';
 import { AnimatedScreen } from './Screen';
 
-export const AboutScreen = () => {
+export const ProjectsScreen = () => {
 	return (
 		<AnimatedScreen>
-			<Title>Erwan Renon</Title>
+			<Title>Projects</Title>
 		</AnimatedScreen>
 	);
 };

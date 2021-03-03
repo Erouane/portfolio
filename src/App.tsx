@@ -1,23 +1,30 @@
-import React from "react";
-import styled from "styled-components";
-import { SideBar } from "./ui/components/sideBar/sideBar";
-import { AboutScreen } from "./ui/screens/aboutScreen";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import styled from 'styled-components';
+import { SideBar } from './ui/components/sideBar/sideBar';
+import { AnimatedRoutes } from './ui/routes/animatedRoutes';
 
 function App() {
-  return (
-    <MainContainer>
-      <SideBar />
-      <AboutScreen />
-    </MainContainer>
-  );
+	return (
+		document.getElementById('root'),
+		(
+			<Router>
+				<MainContainer>
+					<SideBar />
+					<AnimatedRoutes />
+				</MainContainer>
+			</Router>
+		)
+	);
 }
 
 const MainContainer = styled.div`
-  height: 100vh;
-  overflow: hidden;
-  margin: 0px;
-  display: flex;
-  box-sizing: border-box;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0px;
+	display: flex;
+  flex-grow: 1
+	box-sizing: border-box;
 `;
 
 export default App;

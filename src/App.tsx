@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import styled from 'styled-components';
-import { SideBar } from './ui/components/sideBar/sideBar';
 import { AnimatedRoutes } from './ui/routes/animatedRoutes';
 
 function App() {
@@ -10,7 +9,6 @@ function App() {
 		(
 			<Router>
 				<MainContainer>
-					<SideBar />
 					<AnimatedRoutes />
 				</MainContainer>
 			</Router>
@@ -19,6 +17,7 @@ function App() {
 }
 
 const MainContainer = styled.div`
+	display: flex;
 	height: 100vh;
 	overflow: hidden;
 	margin: 0px;

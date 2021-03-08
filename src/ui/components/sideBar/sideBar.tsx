@@ -18,12 +18,11 @@ export const SideBar = () => {
 };
 
 const Container = styled.div`
-	display: flex;
 	width: 150px;
-	flex-direction: column;
 	text-align: center;
 	padding: 0 10px;
-	background-color: ${Colors.primaryColor};
+	position: absolute;
+	right: 0px;
 	box-shadow: 1px 0px rgba(255, 215, 0, 0.2);
 `;
 

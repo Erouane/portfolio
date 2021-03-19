@@ -12,8 +12,6 @@ export const AnimatedScreen = (props: AnimatedScreenProps) => {
 
 const Screen = styled(animated.div)`
   position: absolute;
-  top: 0px;
-  left: 0px;
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0);

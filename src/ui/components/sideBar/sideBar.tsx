@@ -18,10 +18,9 @@ export const SideBar = () => {
 
 const Container = styled.div`
   text-align: center;
-  padding: 0 10px;
   position: absolute;
   top: 0px;
-  right: 50px;
+  right: 200px;
 `;
 
 const Spacer = styled.div`

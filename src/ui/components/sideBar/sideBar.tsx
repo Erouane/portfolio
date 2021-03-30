@@ -2,20 +2,23 @@ import React, { ReactElement, useState } from "react";
 import { useTrail, animated, interpolate } from "react-spring";
 import styled from "styled-components";
 
-import { Routes } from "../../routes/routes";
+import { RouteNames, Routes } from "../../routes/routes";
 import { AnimatedSideBarName } from "./animatedSideBarName";
 
 export const SideBar = () => {
   const [open, setOpen] = useState(false);
-  const [routesIndexes, setRoutesIndexes] = useState(Object.entries(Routes));
+  const [routeNames, setRouteNames] = useState(RouteNames);
   return (
     <Container>
+      <AnimatedSideBarName to={routeNames[0].route}>
+        {routeNames[0].name}
+      </AnimatedSideBarName>
       <Trail open={open} onClick={() => setOpen(!open)}>
-        <AnimatedSideBarName to={Routes.ABOUT}>
-          Présentation
-        </AnimatedSideBarName>
-        <AnimatedSideBarName to={Routes.PROJECTS}>Projets</AnimatedSideBarName>
-        <AnimatedSideBarName to={Routes.MUSIC}>Musique</AnimatedSideBarName>
+        {routeNames.slice(1).map((value, index) => (
+          <AnimatedSideBarName key={index} to={value.route}>
+            {value.name}
+          </AnimatedSideBarName>
+        ))}
       </Trail>
     </Container>
   );
@@ -32,23 +35,22 @@ const Trail = (props: TrailProps) => {
   const trail = useTrail(items.length, {
     config: { mass: 5, tension: 2000, friction: 200 },
     opacity: props.open ? 1 : 0,
-    x: props.open ? 0 : 20,
-    height: props.open ? 110 : 0,
-    from: { opacity: 0, x: 20, height: 0 },
+    y: props.open ? 0 : -180,
+    from: { opacity: 0, y: -180 },
   });
   return (
     <div onClick={props.onClick}>
       <div>
-        {trail.map(({ x, height, ...rest }, index) => (
+        {trail.map(({ y, ...rest }, index) => (
           <animated.div
             key={index}
             className="trails-text"
             style={{
               ...rest,
-              transform: interpolate([x], (x) => `translate3d(0,${x}px,0)`),
+              transform: interpolate([y], (y) => `rotateX(${y}deg)`),
             }}
           >
-            <animated.div style={{ height }}>{items[index]}</animated.div>
+            <animated.div>{items[index]}</animated.div>
           </animated.div>
         ))}
       </div>

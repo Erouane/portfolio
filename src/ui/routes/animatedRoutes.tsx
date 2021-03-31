@@ -8,9 +8,15 @@ import { Routes } from "./routes";
 export const AnimatedRoutes = () => {
   const location = useLocation();
   const transitions = useTransition(location, (location) => location.pathname, {
-    from: { opacity: 0, transform: "translate3d(50%,0%,200px)" },
-    enter: { opacity: 1, transform: "translate3d(0%,0,0%)" },
-    leave: { opacity: 0, transform: "translate3d(0%,-50%,300px)" },
+    from: {
+      opacity: 0,
+      transform: "translate3d(50%,0%,0) rotateY(-180deg)",
+    },
+    enter: { opacity: 1, transform: "translate3d(0%,0,0%) rotateY(0deg)" },
+    leave: {
+      opacity: 0,
+      transform: "translate3d(50%,0,0) rotateY(180deg)",
+    },
   });
   return (
     <>

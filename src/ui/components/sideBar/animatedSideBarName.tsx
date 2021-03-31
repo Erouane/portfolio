@@ -5,17 +5,19 @@ import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 
 export interface AnimatedSidebarName {
-  children: ReactElement;
+  children: string;
   to: string;
+  onClick?: () => void;
 }
 
-export const AnimatedSideBarName = (props: any) => {
+export const AnimatedSideBarName = (props: AnimatedSidebarName) => {
   const [style, set] = useSpring(() => ({ opacity: 1 }));
   return (
     <animated.div
       style={style}
       onPointerDown={() => set({ opacity: 0.5 })}
       onPointerUp={() => set({ opacity: 1 })}
+      onClick={props.onClick}
     >
       <SectionLink to={props.to}>{props.children}</SectionLink>
     </animated.div>

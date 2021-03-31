@@ -1,60 +1,50 @@
-import React, { ReactElement, useState } from "react";
-import { useTrail, animated, interpolate } from "react-spring";
+import React, { useState } from "react";
+
 import styled from "styled-components";
 
-import { RouteNames, Routes } from "../../routes/routes";
+import { RouteNames } from "../../routes/routes";
+
 import { AnimatedSideBarName } from "./animatedSideBarName";
+import { ArrowButton } from "./arrowButton";
+import { Trail } from "./sideBarTrail";
 
 export const SideBar = () => {
   const [open, setOpen] = useState(false);
   const [routeNames, setRouteNames] = useState(RouteNames);
+
+  const setFirstRoute = (index: number) => {
+    const updatedRouteNames = routeNames.slice();
+    [updatedRouteNames[0], updatedRouteNames[index]] = [
+      updatedRouteNames[index],
+      updatedRouteNames[0],
+    ];
+    setRouteNames(updatedRouteNames);
+    console.log("swap");
+  };
+
   return (
     <Container>
       <AnimatedSideBarName to={routeNames[0].route}>
         {routeNames[0].name}
       </AnimatedSideBarName>
-      <Trail open={open} onClick={() => setOpen(!open)}>
+      <ArrowButton onClick={() => setOpen(!open)} visible={!open} />
+      <Trail open={open}>
         {routeNames.slice(1).map((value, index) => (
-          <AnimatedSideBarName key={index} to={value.route}>
+          <AnimatedSideBarName
+            key={index + 1}
+            to={value.route}
+            onClick={() => setFirstRoute(index + 1)}
+          >
             {value.name}
           </AnimatedSideBarName>
         ))}
       </Trail>
+      <ArrowButton
+        onClick={() => setOpen(!open)}
+        visible={open}
+        isUpwards={true}
+      />
     </Container>
-  );
-};
-
-interface TrailProps {
-  open: boolean;
-  children: ReactElement[];
-  onClick: () => void;
-}
-
-const Trail = (props: TrailProps) => {
-  const items = React.Children.toArray(props.children);
-  const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200 },
-    opacity: props.open ? 1 : 0,
-    y: props.open ? 0 : -180,
-    from: { opacity: 0, y: -180 },
-  });
-  return (
-    <div onClick={props.onClick}>
-      <div>
-        {trail.map(({ y, ...rest }, index) => (
-          <animated.div
-            key={index}
-            className="trails-text"
-            style={{
-              ...rest,
-              transform: interpolate([y], (y) => `rotateX(${y}deg)`),
-            }}
-          >
-            <animated.div>{items[index]}</animated.div>
-          </animated.div>
-        ))}
-      </div>
-    </div>
   );
 };
 

@@ -1,16 +1,16 @@
 import React from "react";
 import { AnimatedScreen } from "./Screen";
 import * as fullWording from "../wording/screens.json";
+import { WorkItems } from "../components/workHistory/workItem";
 import { Title } from "../components/title";
-import { Content } from "../components/content";
 
-export const AboutScreen = () => {
-  const wording = fullWording.about;
+export const WorkHistoryScreen = () => {
+  const wording = fullWording.workHistory;
   return (
     <AnimatedScreen>
       <>
         <Title>{wording.title}</Title>
-        <Content>{wording.content}</Content>
+        <WorkItems />
       </>
     </AnimatedScreen>
   );

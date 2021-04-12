@@ -1,6 +1,7 @@
 import React from "react";
-import styled from "styled-components";
-import { Colors } from "../Theme/colors";
+
+import { Title } from "../components/title";
+
 import { AnimatedScreen } from "./Screen";
 
 export const ProjectsScreen = () => {
@@ -10,8 +11,3 @@ export const ProjectsScreen = () => {
     </AnimatedScreen>
   );
 };
-
-const Title = styled.h1`
-  color: ${Colors.primaryOrnament};
-  padding: 20px 20px;
-`;

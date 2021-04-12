@@ -51,6 +51,6 @@ export const SideBar = () => {
 const Container = styled.div`
   text-align: center;
   position: absolute;
-  top: 0px;
+  top: 20px;
   right: 200px;
 `;

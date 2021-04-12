@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Colors } from "../../Theme/colors";
 import { Link } from "react-router-dom";

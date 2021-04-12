@@ -1,0 +1,21 @@
+{
+  "about": {
+    "title": "Erwan Renon",
+    "content": "J'aime développer des sites webs avec de belles finitions et animations"
+  },
+  "workHistory": {
+    "title": "Work Experience",
+    "history": [
+      {
+        "title": "Stage de 2e Année en Russie",
+        "date": "Juin - Août 2020",
+        "content": "Stage réalisé à TUSUR dans la ville de Tomsk en Sibérie. Encadré par un chercheur et en collaboration avec des étudiants Russes j'ai réalisé une interface en C++ pour un appareil réseau."
+      },
+      {
+        "title": "Stage de fin d'études en développement mobile",
+        "date": "Février - Août 2020",
+        "content": "Stage dans l'agence Betomorrow à Bordeaux. Intégéré à des équipes de développement AGILE, j'ai travaillé sur différents projets de développement mobile et Web en React Native et React."
+      }
+    ]
+  }
+}

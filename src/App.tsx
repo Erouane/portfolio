@@ -20,7 +20,12 @@ function App() {
 }
 
 const MainContainer = styled.div`
-  background-color: ${Colors.primaryColor};
+  background: rgb(6, 8, 69);
+  background: linear-gradient(
+    45deg,
+    ${Colors.primaryColor} 70%,
+    ${Colors.secondaryColor} 100%
+  );
   height: 100vh;
   width: 100vw;
   position: relative;
